@@ -1,8 +1,11 @@
+from config import Config
 from controller.file_management.file_storage import FileStorage
-
+from controller.dbHandler.db_handler import DbHandler
 
 class SimpleFileStorage(FileStorage):
-    def get_file(self,url):
-        pass
+    def download_file(self,url):
+        return DbHandler.get_file_binary_from_db(url)
+
+
 
 

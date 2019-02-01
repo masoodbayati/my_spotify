@@ -1,3 +1,3 @@
 class FileStorage():
-   def get_file(self,url):
+   def download_file(self,url):
        pass
