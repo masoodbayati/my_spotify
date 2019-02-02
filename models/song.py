@@ -1,5 +1,5 @@
 from models.jsonable import Jsonable
-
+import json as json_handler
 
 class Song(Jsonable):
     def __init__(self,name,artist,file_id,type,keywords,avatar):
@@ -46,4 +46,17 @@ class Song(Jsonable):
     def set_avatar(self,avatar):
         self.avatar = avatar
 
+    def get_json_object(self):
+        data = {
+            "type": "song",
+            "name":self.name,
+            "artist":self.artist.get_json_object(),
+            "file_id" :self.file_id,
+            "song_type":self.type,
+            "keywords" : self.keywords,
+            "avatar":self.avatar
+        }
+        return data
+    def get_json_str(self):
+        return json_handler.dumps(self.get_json_object())
         

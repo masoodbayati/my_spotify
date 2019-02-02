@@ -4,7 +4,8 @@ from controller.dbHandler.db_handler import DbHandler
 
 class SimpleFileStorage(FileStorage):
     def download_file(self,url):
-        return DbHandler.get_file_binary_from_db(url)
+        db_handler = DbHandler()
+        return db_handler.get_file_binary_from_db(url)
 
 
 
